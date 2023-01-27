@@ -68,6 +68,7 @@
                 width: 100%;
                 height: 150px;
                 overflow: hidden auto;
+                overflow-anchor: auto;
                 padding: 0;
             }
                 form div#message p{
