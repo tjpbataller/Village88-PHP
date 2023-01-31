@@ -11,13 +11,23 @@
     <title>Bulletin Board</title>
 </head>
 <body>
+<?php
+    if(isset($_SESSION["errors"]) && !empty($_SESSION["errors"])){
+        foreach($_SESSION["errors"] as $error){
+?>
+    <p><?= $error?></p>
+<?php
+        }
+        unset($_SESSION["errors"]);
+    }
+?>
     <h1>Bulletin Board Entry</h1>
     <form action="process.php" method="post">
         <label>Subject: 
             <input type="text" name="title">
         </label>
         <label>Details: 
-            <input type="text" name="description">
+            <textarea name="description" cols="30" rows="10"></textarea>
         </label>
         <input type="submit" name="add" value="Add">
         <a href="main.php"><input type="button" value="Skip"></a>

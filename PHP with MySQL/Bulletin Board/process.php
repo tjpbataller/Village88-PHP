@@ -1,5 +1,5 @@
 <?php
-required_once("connection.php");
+require_once("connection.php");
 
 $errors = array();
 $title = $_SESSION["title"] = $_POST["title"];
@@ -21,12 +21,17 @@ function validate_form($title, $desc, $errors){
 
 function insert_data($title, $desc){
     global $connect;
-    $query = "INSERT INTO bulletin(title, description) VALUES('$title','$desc');";
+    $query = "INSERT INTO bulletin(title, description, created_at) VALUES('$title','$desc', NOW());";
     $results = mysqli_query($connect, $query);
 
     return $results;
 }
 
-$_SESSION["results"] = insert_data($title, $desc);
-header("");
+$_SESSION["errors"] = validate_form($title, $desc, $errors); 
+if(!empty($_SESSION["errors"])){
+    header("Location: index.php");
+    die();
+}
+insert_data($title, $desc);
+header("Location: main.php");
 ?>
