@@ -10,8 +10,6 @@ if(isset($_POST["date"]) && $_POST["date"] !== ""){
     if($date->format('Y-m-d') == $_POST["date"]){
         
         if($now->format('Y-m-d') !== $date->format('Y-m-d')){
-            var_dump($now->format('Y-m-d'));
-            var_dump($date->format('Y-m-d'));
             $responses[] = "Date Today must be current date.";
         }else{
             $_SESSION["date"] = $_POST["date"];

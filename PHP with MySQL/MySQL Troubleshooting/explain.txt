@@ -1,0 +1,7 @@
+1. Network error - shows when the DB_HOST variable contains an invalid input such as incorrect spelling, non-existing host, url is incorrect.
+			 To fix this, it needs to contain the correct host "ex: localhost".
+
+2. Authentication error - shows when the DB_USER or DB_PASS does not contain an invalid input such as incorrect username and password.
+				  To fix this, it needs to be populated with correct credentials.
+3. Authorization error - shows when the user accessing the database does not have enough privilages granted upon.
+				 To fix this, a user with grant privilage needs to add privilage to the user in subject.
